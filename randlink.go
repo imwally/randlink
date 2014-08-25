@@ -1,7 +1,7 @@
 package main
 
 import (
-    "fmt"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"math/rand"
@@ -17,7 +17,7 @@ import (
 func FilterLinks(links []string, filter string) []string {
 	var filteredLinks []string
 	absoluteUrl := regexp.MustCompile(`^(http|https)://`)
-	domain := regexp.MustCompile("^(http|https)://"+filter)
+	domain := regexp.MustCompile("^(http|https)://" + filter)
 
 	for _, link := range links {
 		if absoluteUrl.MatchString(link) &&
@@ -66,10 +66,10 @@ func GetLinks(url string) []string {
 }
 
 func Index(w http.ResponseWriter, req *http.Request) {
-    places := `<a href="hackernews">hacker news</a>
+	places := `<a href="hackernews">hacker news</a>
         <br/><a href="lobsters">lobsters</a>`
 
-    fmt.Fprintf(w, places)
+	fmt.Fprintf(w, places)
 }
 
 func RandomLobsters(w http.ResponseWriter, req *http.Request) {
